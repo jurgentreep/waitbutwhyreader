@@ -1,0 +1,48 @@
+body {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+[container] {
+    max-width: 800px;
+}
+
+article img {
+    max-width: 100%;
+}
+
+[rel="footnote"] {
+    background: #4591aa;
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    border-radius: 50%;
+    color: white;
+    line-height: 16px;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 2px;
+    outline: none;
+}
+
+[rel="footnote"]:hover, [rel="footnote"]:active, [rel="footnote"]:visited, [rel="footnote"]:focus {
+    color: white;
+    background: #4591aa;
+}
+
+[rel="footnote2"] {
+    background: #B7B7B7;
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    color: white;
+    line-height: 16px;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 2px;
+    outline: none;
+}
+
+[rel="footnote2"]:hover, [rel="footnote2"]:active, [rel="footnote2"]:visited, [rel="footnote2"]:focus {
+    color: white;
+    background: #B7B7B7;
+}
