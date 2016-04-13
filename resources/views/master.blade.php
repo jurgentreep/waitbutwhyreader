@@ -8,12 +8,13 @@
         <meta name="MobileOptimized" content="320">
         <title>{{ $article->title }} - Wait But Why Reader</title>
         <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-        <link href='/css/concise.min.css' rel='stylesheet' type='text/css'>
         <link href='/css/master.css' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <main container>
+        <main class="container">
             @yield('content')
         </main>
+
+        <script src="/js/master.js" charset="utf-8"></script>
     </body>
 </html>

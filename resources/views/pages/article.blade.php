@@ -23,4 +23,9 @@
             @endforeach
         </ul>
     </article>
+    <div class="last-position hidden">
+        Would you like to go back to your last position?
+        <button class="btn btn-default" type="button" name="yes">Yes</button>
+        <button class="btn btn-default" type="button" name="no">No</button>
+    </div>
 @endsection
