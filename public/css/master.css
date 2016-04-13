@@ -1,5 +1,14 @@
 body {
     font-family: 'Noto Sans', sans-serif;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
 }
 
 [container] {
@@ -13,11 +22,11 @@ article img {
 [rel="footnote"] {
     background: #4591aa;
     height: 16px;
-    width: 16px;
+    min-width: 16px;
     display: inline-block;
     border-radius: 50%;
     color: white;
-    line-height: 16px;
+    line-height: 14px;
     text-align: center;
     font-size: 14px;
     margin: 0 2px;
@@ -32,10 +41,11 @@ article img {
 [rel="footnote2"] {
     background: #B7B7B7;
     height: 16px;
-    width: 16px;
+    min-width: 16px;
+    padding: 1px;
     display: inline-block;
     color: white;
-    line-height: 16px;
+    line-height: 14px;
     text-align: center;
     font-size: 14px;
     margin: 0 2px;
