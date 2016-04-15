@@ -17,6 +17,10 @@ class ScrapeController extends Controller
         $this->client = $client;
     }
 
+    /**
+     * Show article
+     * @return view
+     */
     public function index()
     {
         $url = 'http://waitbutwhy.com/2016/03/cryonics.html';
@@ -24,6 +28,12 @@ class ScrapeController extends Controller
         return view('pages.article', compact('article'));
     }
 
+    /**
+     * Retrieve the article from a url
+     * @method getArticle
+     * @param  String     $url
+     * @return Object
+     */
     private function getArticle($url)
     {
         $article = new stdClass();
@@ -33,6 +43,11 @@ class ScrapeController extends Controller
         return $article;
     }
 
+    /**
+     * Extract all the usefull information from the article
+     * @param  Object $crawler
+     * @return Object
+     */
     private function extractArticle($crawler)
     {
         $article = new stdClass();
@@ -54,6 +69,11 @@ class ScrapeController extends Controller
         return $article;
     }
 
+    /**
+     * Generate an html string that represents the footnote
+     * @param  Object $node
+     * @return string
+     */
     private function generateFootnote($node)
     {
         $id = $node->attr('id');
