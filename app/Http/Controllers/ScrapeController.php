@@ -30,7 +30,6 @@ class ScrapeController extends Controller
 
     /**
      * Retrieve the article from a url
-     * @method getArticle
      * @param  String     $url
      * @return Object
      */
