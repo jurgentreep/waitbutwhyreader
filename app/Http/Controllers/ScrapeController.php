@@ -53,7 +53,7 @@ class ScrapeController extends Controller
         $article->title = $crawler->filter('.entry-header h1')->text();
         $article->author = $crawler->filter('.entry-meta')->text();
         $article->paragraphs = $crawler->filter('.entry-content>p')->each(function ($node) {
-            return $node->html();
+            return str_replace('http://waitbutwhy.com/wp-content/uploads/', 'https://waitbutwhy.com/wp-content/uploads/', $node->html());
         });
         $article->footnotes = new stdClass();
         $article->footnotes->extra_info = $crawler->filter('.footnote')->each(function ($node) {
