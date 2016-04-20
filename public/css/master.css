@@ -1,4 +1,13 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
+    margin: 0;
     font-family: 'Noto Serif', serif;
     color: rgba(0, 0, 0, 0.8);
     font-weight: 400;
@@ -32,7 +41,7 @@ a img {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 50rem;
     margin: 0 auto;
     padding: 1.5rem;
 }
