@@ -7,7 +7,7 @@
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <title>{{ $article->title }} - Wait But Why Reader</title>
-        <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
         <link href='/css/master.css' rel='stylesheet' type='text/css'>
     </head>
     <body>

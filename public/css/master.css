@@ -1,14 +1,26 @@
 body {
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Serif', serif;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 400;
+    font-size: 1.3em;
+    line-height: 1.58;
+
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
     overflow-wrap: break-word;
     word-wrap: break-word;
     -ms-word-break: break-all;
     word-break: break-word;
-    -ms-hyphens: auto;
-    -moz-hyphens: auto;
-    -webkit-hyphens: auto;
-    hyphens: auto;
+}
+
+a {
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+    background-image: linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.6) 50%);
+    background-repeat: repeat-x;
+    background-size: 2px 2px;
+    background-position: 0 23px;
 }
 
 .container {
