@@ -81,7 +81,7 @@ class ScrapeController extends Controller
     {
         $id = $node->attr('id');
         $html = $node->filter('p')->html();
-        $footnote = '<li id="' . $id . '">"' . $html . '</li>';
+        $footnote = '<li id="' . $id . '">' . $html . '</li>';
         return $footnote;
     }
 }
