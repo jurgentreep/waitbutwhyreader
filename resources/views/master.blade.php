@@ -15,6 +15,7 @@
             @yield('content')
         </main>
 
+        @include('analytics')
         <script src="/js/master.js" charset="utf-8"></script>
     </body>
 </html>
