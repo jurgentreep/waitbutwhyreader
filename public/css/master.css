@@ -27,6 +27,10 @@ a {
     background-position: 0 23px;
 }
 
+a img {
+    border:none; vertical-align:top;
+}
+
 .container {
     max-width: 800px;
     margin: 0 auto;
