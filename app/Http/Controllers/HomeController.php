@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use Goutte\Client;
 
+use Cache;
+
 use \stdClass;
 
 class HomeController extends Controller
@@ -24,17 +26,23 @@ class HomeController extends Controller
         return view('home', compact('article'));
     }
 
-    public function getHomePage()
+    private function getHomePage()
     {
-        $article = new StdClass();
-        $crawler = $this->client->request('GET', 'http://waitbutwhy.com/archive');
-        $article->title = 'Wait But Why';
-        $article->list = $crawler->filter('.post-list li')->each(function ($node) {
-            $item = new stdClass();
-            $item->title = str_replace('waitbutwhy.com', 'waitbutwhyreader.com', $node->filter('.post-right h5')->html());
-            $item->image = '<img src="' . $node->filter('.thumbnail img')->attr('src') . '">';
-            return $item;
-        });
+        if(Cache::has('homepage_list')) {
+            $article = Cache::get('homepage_list');
+        } else {
+            $article = new StdClass();
+            $crawler = $this->client->request('GET', 'http://waitbutwhy.com/archive');
+            $article->title = 'Wait But Why';
+            $article->list = $crawler->filter('.post-list li')->each(function ($node) {
+                $item = new stdClass();
+                $item->title = str_replace('waitbutwhy.com', 'waitbutwhyreader.com', $node->filter('.post-right h5')->html());
+                $item->image = '<img src="' . $node->filter('.thumbnail img')->attr('src') . '">';
+                return $item;
+            });
+            $minutes = 1440;
+            Cache::put('homepage_list', $article, $minutes);
+        }
         return $article;
     }
 }

@@ -38,11 +38,11 @@ class ScrapeController extends Controller
      */
     private function getArticle($url)
     {
-        $article = new stdClass();
         if(Cache::has($url)) {
             $article = Cache::get($url);
         } else {
             $crawler = $this->client->request('GET', $url);
+            $article = new stdClass();
             $article = $this->extractArticle($crawler);
             $minutes = 1440;
             Cache::put($url, $article, $minutes);
