@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use Goutte\Client;
 
+use Cache;
+
 use \stdClass;
 
 class ScrapeController extends Controller
@@ -23,6 +25,11 @@ class ScrapeController extends Controller
      */
     public function index($year, $month, $page)
     {
+
+        // var_dump(Cache::has('key'));
+        // Cache::put('key', 'value', 5);
+        // Cache::forget('key');
+
         $base_url = 'http://waitbutwhy.com/';
         $url = $base_url . $year . '/' . $month . '/' . $page;
         $article = $this->getArticle($url);
@@ -37,8 +44,15 @@ class ScrapeController extends Controller
     private function getArticle($url)
     {
         $article = new stdClass();
-        $crawler = $this->client->request('GET', $url);
-        $article = $this->extractArticle($crawler);
+        if(Cache::has($url)) {
+            $article = Cache::get($url);
+            echo 'used cache';
+        } else {
+            $crawler = $this->client->request('GET', $url);
+            $article = $this->extractArticle($crawler);
+            Cache::put($url, $article, 5);
+            echo 'didn\'t use cache';
+        }
 
         return $article;
     }
