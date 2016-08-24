@@ -49,7 +49,8 @@ class ScrapeController extends Controller
         } else {
             $crawler = $this->client->request('GET', $url);
             $article = $this->extractArticle($crawler);
-            Cache::put($url, $article, 5);
+            $minutes = 1440;
+            Cache::put($url, $article, $minutes);
         }
 
         return $article;
