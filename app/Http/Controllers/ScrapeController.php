@@ -25,11 +25,6 @@ class ScrapeController extends Controller
      */
     public function index($year, $month, $page)
     {
-
-        // var_dump(Cache::has('key'));
-        // Cache::put('key', 'value', 5);
-        // Cache::forget('key');
-
         $base_url = 'http://waitbutwhy.com/';
         $url = $base_url . $year . '/' . $month . '/' . $page;
         $article = $this->getArticle($url);
@@ -67,7 +62,6 @@ class ScrapeController extends Controller
         $article->title = $crawler->filter('.entry-header h1')->text();
         $article->author = $crawler->filter('.entry-meta')->text();
         $article->paragraphs = $crawler->filter('.entry-content>p')->each(function ($node) {
-            $html = $node->html();
             if ($node->filter('img')->count()) {
                 $html = '<img src="' . $node->filter('img')->attr('src') . '">';
             }
