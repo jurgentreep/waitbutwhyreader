@@ -153,4 +153,5 @@ article img {
 .post-title {
     display: inline-block;
     max-width: calc(100% - 130px);
+    vertical-align: middle;
 }
