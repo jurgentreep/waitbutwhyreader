@@ -1,45 +1,17 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('master')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
-        </div>
-    </body>
-</html>
+@section('content')
+    <h1>Welcome</h1>
+    <p>
+        Hi,<br>
+        <br>
+        You've got two options for now, you can append the uri of the article like this:<br>
+        <pre>waitbutwhyreader.com/<strong>&lt;uri&gt;</strong></pre><br>
+        Or browse to the article you want on <a target="_blank" href="http://waitbutwhy.com">waitbutwhy.com</a> and add the word <strong>reader</strong> after <strong>waitbutwhy</strong> like this:<br>
+        <pre>waitbutwhy<strong>reader</strong>.com</pre><br>
+        An example url would look something like this:<br>
+        <a href="http://waitbutwhyreader.com/2016/03/cryonics.html">waitbutwhyreader.com/2016/03/cryonics.html</a><br>
+        <br>
+        I plan to replace this page with a page where you can easily browse through the different posts later.<br>
+    </p>
+@endsection
