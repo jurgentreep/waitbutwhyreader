@@ -11,9 +11,5 @@
 |
 */
 
-Route::get('/', function() {
-    $article = new stdClass();
-    $article->title = 'Wait But Why';
-    return view('welcome', compact('article'));
-});
+Route::get('/', 'HomeController@index');
 Route::get('{year}/{month}/{page}', 'ScrapeController@index');
