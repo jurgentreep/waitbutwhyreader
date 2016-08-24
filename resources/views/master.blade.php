@@ -11,11 +11,11 @@
         <link href='/css/master.css' rel='stylesheet' type='text/css'>
     </head>
     <body>
+        @include('analytics')
         <main class="container">
             @yield('content')
         </main>
 
-        @include('analytics')
         <script src="/js/master.js" charset="utf-8"></script>
     </body>
 </html>
