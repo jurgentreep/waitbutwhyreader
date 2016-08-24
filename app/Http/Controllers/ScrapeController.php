@@ -21,9 +21,10 @@ class ScrapeController extends Controller
      * Show article
      * @return view
      */
-    public function index()
+    public function index($year, $month, $page)
     {
-        $url = 'http://waitbutwhy.com/2016/03/cryonics.html';
+        $base_url = 'http://waitbutwhy.com/';
+        $url = $base_url . $year . '/' . $month . '/' . $page;
         $article = $this->getArticle($url);
         return view('pages.article', compact('article'));
     }

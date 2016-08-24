@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('/', 'ScrapeController@index');
+Route::get('{year}/{month}/{page}', 'ScrapeController@index');
