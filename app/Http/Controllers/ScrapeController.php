@@ -46,12 +46,10 @@ class ScrapeController extends Controller
         $article = new stdClass();
         if(Cache::has($url)) {
             $article = Cache::get($url);
-            echo 'used cache';
         } else {
             $crawler = $this->client->request('GET', $url);
             $article = $this->extractArticle($crawler);
             Cache::put($url, $article, 5);
-            echo 'didn\'t use cache';
         }
 
         return $article;
