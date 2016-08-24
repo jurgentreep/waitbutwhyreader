@@ -36,7 +36,7 @@ class HomeController extends Controller
             $article->title = 'Wait But Why';
             $article->list = $crawler->filter('.post-list li')->each(function ($node) {
                 $item = new stdClass();
-                $item->title = str_replace('waitbutwhy.com', 'waitbutwhyreader.com', $node->filter('.post-right h5')->html());
+                $item->title = str_replace('waitbutwhy.com', 'waitbutwhyreader.app', $node->filter('.post-right h5')->html());
                 $item->image = '<img src="' . $node->filter('.thumbnail img')->attr('src') . '">';
                 return $item;
             });
