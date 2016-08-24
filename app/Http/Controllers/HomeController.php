@@ -35,12 +35,6 @@ class HomeController extends Controller
             $item->image = '<img src="' . $node->filter('.thumbnail img')->attr('src') . '">';
             return $item;
         });
-
-        // $article->page->message = $crawler->filter('.homeMessage')->html();
-        // $article->page->main_post = new StdClass();
-        // $article->page->main_post->title = $crawler->filter('.mainPost h1')->html();
-        // $article->page->main_post->image = '<img src="' . $crawler->filter('.mainPost img')->attr('src') . '">';
-        // $article->page->main_post->excerpt = $crawler->filter('.mainPost .entry-excerpt')->html();
         return $article;
     }
 }

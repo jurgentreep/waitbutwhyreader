@@ -62,6 +62,7 @@ class ScrapeController extends Controller
         $article->title = $crawler->filter('.entry-header h1')->text();
         $article->author = $crawler->filter('.entry-meta')->text();
         $article->paragraphs = $crawler->filter('.entry-content>p')->each(function ($node) {
+            $html = $node->html();
             if ($node->filter('img')->count()) {
                 $html = '<img src="' . $node->filter('img')->attr('src') . '">';
             }
