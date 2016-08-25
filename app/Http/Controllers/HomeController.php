@@ -28,6 +28,7 @@ class HomeController extends Controller
 
     private function getHomePage()
     {
+        // Cache::forget('homepage_list');
         if(Cache::has('homepage_list')) {
             $article = Cache::get('homepage_list');
         } else {
@@ -36,7 +37,7 @@ class HomeController extends Controller
             $article->title = 'Wait But Why';
             $article->list = $crawler->filter('.post-list li')->each(function ($node) {
                 $item = new stdClass();
-                $item->title = str_replace('waitbutwhy.com', 'waitbutwhyreader.com', $node->filter('.post-right h5')->html());
+                $item->title = str_replace('http://waitbutwhy.com', url('/'), $node->filter('.post-right h5')->html());
                 $item->image = '<img src="' . $node->filter('.thumbnail img')->attr('src') . '">';
                 return $item;
             });
