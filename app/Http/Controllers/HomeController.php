@@ -33,11 +33,11 @@ class HomeController extends Controller
             $article = Cache::get('homepage_list');
         } else {
             $article = new StdClass();
-            $crawler = $this->client->request('GET', 'http://waitbutwhy.com/archive');
+            $crawler = $this->client->request('GET', 'https://waitbutwhy.com/archive');
             $article->title = 'Wait But Why';
             $article->list = $crawler->filter('.post-list li')->each(function ($node) {
                 $item = new stdClass();
-                $item->title = str_replace('http://waitbutwhy.com', url('/'), $node->filter('.post-right h5')->html());
+                $item->title = str_replace('https://waitbutwhy.com', url('/'), $node->filter('.post-right h5')->html());
                 $item->image = '<img src="' . $node->filter('.thumbnail img')->attr('src') . '">';
                 return $item;
             });
